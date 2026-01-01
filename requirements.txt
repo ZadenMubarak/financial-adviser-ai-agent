@@ -7,3 +7,13 @@ scikit_learn>=1.0.2
 gunicorn>=20.1.0
 joblib
 google-genai
+matplotlib
+seaborn
+tensorflow>=2.8.0
+transformers>=4.18.0
+torch>=1.10.0
+beautifulsoup4
+lxml
+lightgbm
+xgboost
+seaborn
