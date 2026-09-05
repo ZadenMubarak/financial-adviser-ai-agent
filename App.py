@@ -2,15 +2,15 @@ from flask import Flask, request, render_template, session, jsonify
 import numpy as np
 import pandas as pd
 import requests
-import openai
+# import openai
 import os
 import json
 import time
 import joblib
-from openai import OpenAI
-
 
 from google import genai
+
+from transformJSONdata import fix_response
 
 
 app = Flask(__name__)
@@ -21,9 +21,7 @@ secret = os.urandom(24)
 app.secret_key = b'\xd0\xd6\x7f\xdfI\xdd\x8c\xbd\xaf^>D,\x01\x9d\xdf~z\xd7\x0b+[\x06R'
 
 
-# client = OpenAI(api_key="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")
-
-client = genai.Client(api_key="AIzaSyAACWLDDhYPrE5HqeW96JAjtOLDBRF5UtM")
+client = genai.Client(api_key="AQ.Ab8RN6IWaSDko-JiHLyzn17BDE8uZpTAFkf9c0nNMdaWWp-XHg")
 
 # Load the predictive model from a file
 loaded_model = joblib.load('random_forest_model.pkl')
@@ -36,27 +34,6 @@ columns = ['no_of_dependents', 'education', 'self_employed', 'income_annum',
            'commercial_assets_value', 'luxury_assets_value', 'bank_asset_value']
 
 
-
-def chatGPT(text):
-    """
-    Generates a response from the OpenAI's GPT model based on the given text.
-
-    This function uses the OpenAI's GPT model to generate a response for a given text input.
-    It specifies the model and sets parameters like max_tokens and temperature for the response.
-
-    Args:
-    text (str): The text input for which a response is required.
-
-    Returns:
-    str: The generated response text from the model.
-    """
-    completion = client.completions.create(
-        model="text-davinci-003",
-        prompt=text,
-        max_tokens=4000,
-        temperature=0.6
-    )
-    return print(completion.choices[0].text)
 
 
 def get_response(prompt, model="gpt-3.5-turbo"):
@@ -81,7 +58,7 @@ def get_response(prompt, model="gpt-3.5-turbo"):
 
 
     response = client.models.generate_content(
-    model="gemini-2.0-flash",
+    model="gemini-3.5-flash-lite",
     contents=messages,
     )
 
