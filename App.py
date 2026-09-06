@@ -21,7 +21,7 @@ secret = os.urandom(24)
 app.secret_key = b'\xd0\xd6\x7f\xdfI\xdd\x8c\xbd\xaf^>D,\x01\x9d\xdf~z\xd7\x0b+[\x06R'
 
 
-client = genai.Client(api_key="AQ.Ab8RN6IWaSDko-JiHLyzn17BDE8uZpTAFkf9c0nNMdaWWp-XHg")
+client = genai.Client(api_key="")
 
 # Load the predictive model from a file
 loaded_model = joblib.load('random_forest_model.pkl')
