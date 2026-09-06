@@ -1,21 +1,7 @@
 from google import genai
 
-# client = genai.Client(api_key="AIzaSyAACWLDDhYPrE5HqeW96JAjtOLDBRF5UtM")
 client = genai.Client(api_key="AQ.Ab8RN6IWaSDko-JiHLyzn17BDE8uZpTAFkf9c0nNMdaWWp-XHg")
 
-# prompt = input("prompt agent: ") AQ.Ab8RN6IWaSDko-JiHLyzn17BDE8uZpTAFkf9c0nNMdaWWp-XHg
-
-# messages = [
-#     {"role": "system", "content": "You are a nice loan acceptance prediction and assistant for small business enterprises"},
-#     {"role": "user", "content": prompt}
-# ]
-
-# message = f"""
-
-# "You are a nice loan acceptance prediction and assistant for small business enterprises"
-# {prompt}
-
-# """
 
 format = '''
     [
