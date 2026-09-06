@@ -18,3 +18,4 @@ lightgbm
 xgboost
 seaborn
 google-colab
+flask-cors

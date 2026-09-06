@@ -17,10 +17,6 @@ from transformJSONdata import fix_response
 
 app = Flask(__name__)
 
-# Set the secret key for the Flask application from an environment variable.
-# NOTE: previously this was hardcoded and also overwritten by an unused
-# `secret = os.urandom(24)` line above it. Sessions require a *stable*
-# secret key across restarts, so keep it fixed (ideally read from an env var).
 app.secret_key = b'\xd0\xd6\x7f\xdfI\xdd\x8c\xbd\xaf^>D,\x01\x9d\xdf~z\xd7\x0b+[\x06R'
 
 # React will run on a different origin (e.g. http://localhost:3000) than
@@ -242,9 +238,7 @@ def next_session():
     if not name or not country:
         return jsonify({"error": "name and country are required"}), 400
 
-    # NOTE: original code did `session = {}` here, which shadowed Flask's
-    # session object with a plain dict and silently discarded it — nothing
-    # was ever actually persisted. Writing into `session` directly fixes that.
+
     session["name"] = name
     session["country"] = country
 
